@@ -31,10 +31,8 @@ function App() {
         {/* // Routes outside the Layout  */}
         <Route path="/login" element={<Loginpage />} />
         <Route path="/register" element={<Registerpage />} />
-      </Routes>
-        
+        </Routes>
       </BrowserRouter> 
- 
 
 
 

@@ -7,8 +7,10 @@ function Loginpage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const navigate = useNavigate(); // Hook for navigation
-
+  
+  // Hook for navigation
+  const navigate = useNavigate();
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -19,6 +21,8 @@ function Loginpage() {
 
       
        const token = response.data.token;
+
+console.log(token);
 
        if (token) {
         // Save the token in localStorage

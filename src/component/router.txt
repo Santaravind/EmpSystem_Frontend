@@ -1,0 +1,17 @@
+ <BrowserRouter>
+   <Routes>
+        {/* //Routes under the Layout  */}
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="employee" element={<EmployeeDelail />} />
+          <Route path="hr" element={<HrDetail />} />
+        </Route>
+
+        {/* // Routes outside the Layout  */}
+        <Route path="/login" element={<Loginpage />} />
+        <Route path="/register" element={<Registerpage />} />
+        </Routes>
+      </BrowserRouter> 
+ {/* // Routes outside the Layout  */}
+        <Route path="/login" element={<Loginpage />} />
+        <Route path="/register" element={<Registerpage />} />
