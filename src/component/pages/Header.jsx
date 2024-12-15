@@ -1,9 +1,7 @@
 import React from 'react'
 import logo from '../assets/logo.png'
-import {BrowserRouter, Link, Outlet, Route, Routes} from 'react-router-dom'
-import Home from './Home'
-import EmployeeDelail from './EmployeeDetail'
-import HrDetail from './HrDetail'
+import {Link} from 'react-router-dom'
+
 function Header() {
   return (
    
@@ -24,7 +22,7 @@ function Header() {
 
   
      <div class="hidden space-x-6 md:flex">
-      <Link to="/" class="hover:text-indigo-400">Home</Link>
+      <Link to="/home" class="hover:text-indigo-400">Home</Link>
       <Link to="/Employee" class="hover:text-indigo-400">Employee</Link>
       <Link to="/hr" class="hover:text-indigo-400">HR</Link>
       <a href="#" class="hover:text-indigo-400">Calendar</a>
@@ -32,6 +30,7 @@ function Header() {
       <a href="#" class="hover:text-indigo-400">Document</a> 
       <Link to="/register" class="hover:text-indigo-400">Register</Link>
       <Link to="/login" class="hover:text-indigo-400">Login</Link>
+      <Link to="/logout" class="hover:text-indigo-400">Logout</Link>
       
       </div>
 

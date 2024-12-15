@@ -18,24 +18,19 @@ function Loginpage() {
         email,
         password,
       });
-
-      
+     
        const token = response.data.token;
-
-console.log(token);
+         
 
        if (token) {
-        // Save the token in localStorage
-        localStorage.setItem("token", token);
-
+       // Save the token in localStorage
+       localStorage.setItem("token", token);
           setError("");
-       navigate("/");
+       navigate("/home");
       } else {
-    
-                      
+                         
         setError("Login failed. Please try again.");
       }
-
 
     } catch (err) {
       setError("Invalid credentials");
