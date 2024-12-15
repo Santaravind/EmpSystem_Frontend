@@ -98,19 +98,7 @@ function Registerpage() {
         required
       />
   
-      {/* <label htmlFor="city" className="text-gray-700 font-medium mb-2">
-        City:
-      </label>
-      <input
-        type="text"
-        id="city"
-        name="city"
-        placeholder="Enter your city"
-        value={formData.city}
-        onChange={handleChange}
-        className="p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        required
-      /> */}
+     
   
       <label htmlFor="role" className="text-gray-700 font-medium mb-2">
         Role:

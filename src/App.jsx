@@ -1,56 +1,57 @@
 
-import { BrowserRouter, Route, Routes,Navigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes,Navigate, useLocation } from 'react-router-dom';
 import './App.css'
-import EmployeeDelail from './component/EmployeeDetail'
-import Header from './component/Header'
-import Home from './component/Home';
-import HrDetail from './component/HrDetail'
-import Loginpage from './component/Loginpage';
-import Registerpage from './component/Registerpage';
-import Layout from './component/Layout';
+
+import Loginpage from './component/auth/Loginpage';
+import Registerpage from './component/auth/Registerpage';
+import Layout from './component/pages/Layout';
+import Home from './component/pages/Home';
+import EmployeeDetail from './component/pages/EmployeeDetail';
+import HrDetail from './component/pages/HrDetail';
+import Privateroute from './component/route/Privateroute';
+import Footer from './component/pages/Footer';
+import Header from './component/pages/Header';
+import Logout from './component/auth/Logout';
 
 
 function App() {
-  // const token = localStorage.getItem("token");
+  
 
-
+  const location = useLocation();
+  const hideHeaderFooter = ["/login", "/register"];
+  
   return (
     <>
+     {!hideHeaderFooter.includes(location.pathname) && <Header />}
 
-     {/* //Second chanse that give proper  */}
-
-     <BrowserRouter>
-   <Routes>
-        {/* //Routes under the Layout  */}
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="employee" element={<EmployeeDelail />} />
-          <Route path="hr" element={<HrDetail />} />
-        </Route>
-
-        {/* // Routes outside the Layout  */}
-        <Route path="/login" element={<Loginpage />} />
+     <Routes>
+      {/* Public Routes */}
+      <Route path="/login" element={<Loginpage />} />
         <Route path="/register" element={<Registerpage />} />
-        </Routes>
-      </BrowserRouter> 
+      
+           
+
+           <Route path='/home' element={
+            <Privateroute>
+             <Home />
+            </Privateroute>
+           } />
+           <Route path='/employee' element={<Privateroute>
+             <EmployeeDetail />
+            </Privateroute>} />
+           <Route path='/hr' element={<Privateroute>
+             <HrDetail />
+            </Privateroute>} />
+           <Route path='/logout' element={
+             <Logout />} />
 
 
+      </Routes>
+    
 
-        
-       { /*   
-       //First chanse
-        <BrowserRouter>
-        <Routes>
-        <Route path='/' element={<Layout/>} />
-        <Route path='' element={<Home/>} />
-        <Route path='employee' element={<EmployeeDelail/>} />
-        <Route path='hr' element={<HrDetail/>} />
-        <Route path='login' element={<Loginpage/>} />
-        <Route path='register' element={<Registerpage/>} />
-       </Routes> 
-       </BrowserRouter>
-       */
-      }
+
+           {!hideHeaderFooter.includes(location.pathname) && <Footer />}
+      
       
      
          </>

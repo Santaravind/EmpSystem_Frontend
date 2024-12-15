@@ -1,4 +1,21 @@
- <BrowserRouter>
+ { /*   
+       //First chanse
+        <BrowserRouter>
+        <Routes>
+        <Route path='/' element={<Layout/>} />
+        <Route path='' element={<Home/>} />
+        <Route path='employee' element={<EmployeeDelail/>} />
+        <Route path='hr' element={<HrDetail/>} />
+        <Route path='login' element={<Loginpage/>} />
+        <Route path='register' element={<Registerpage/>} />
+       </Routes> 
+       </BrowserRouter>
+       */
+      }
+
+       {/* //Second chanse that give proper  */}
+
+     <BrowserRouter>
    <Routes>
         {/* //Routes under the Layout  */}
         <Route path="/" element={<Layout />}>
@@ -12,6 +29,29 @@
         <Route path="/register" element={<Registerpage />} />
         </Routes>
       </BrowserRouter> 
- {/* // Routes outside the Layout  */}
-        <Route path="/login" element={<Loginpage />} />
-        <Route path="/register" element={<Registerpage />} />
+
+
+      import React from 'react'
+import Header from './Header'
+import { Outlet } from 'react-router-dom'
+import Footer from './Footer'
+
+function Layout() {
+  const hideHeaderFooter = ["/login", "/register"];
+  const currentPath = window.location.pathname;
+  return (
+    <>
+   
+    {/* Show Header only if the current path is not in `hideHeaderFooter` */}
+    {!hideHeaderFooter.includes(currentPath) && <Header />}
+       <main>
+       <Outlet/>
+       </main>
+      
+         {/* Show Footer only if the current path is not in `hideHeaderFooter` */}
+         {!hideHeaderFooter.includes(currentPath) && <Footer />}
+    </>
+  )
+}
+
+export default Layout
