@@ -25,11 +25,12 @@ function Header() {
       <Link to="/home" class="hover:text-indigo-400">Home</Link>
       <Link to="/Employee" class="hover:text-indigo-400">Employee</Link>
       <Link to="/hr" class="hover:text-indigo-400">HR</Link>
-      <a href="#" class="hover:text-indigo-400">Calendar</a>
+      <Link to="/getdata" class="hover:text-indigo-400">Allemployee</Link>
+      <a href="" class="hover:text-indigo-400">Calendar</a>
       <a href="#" class="hover:text-indigo-400">Meeting</a>
       <a href="#" class="hover:text-indigo-400">Document</a> 
       <Link to="/register" class="hover:text-indigo-400">Register</Link>
-      <Link to="/login" class="hover:text-indigo-400">Login</Link>
+      <Link to="/" class="hover:text-indigo-400">Login</Link>
       <Link to="/logout" class="hover:text-indigo-400">Logout</Link>
       
       </div>

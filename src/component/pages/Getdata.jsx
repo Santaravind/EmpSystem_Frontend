@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 //import {useQuery} from '@tanstack/react-router'
-function Home() {
+function Getdata() {
   const token = localStorage.getItem("token");
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(false);
@@ -50,7 +50,8 @@ function Home() {
       <div className="grid grid-cols-3 gap-5 p-5">
         {/* Employee Card */}
         {users.map((user) => (
-          <div className="flex items-start p-4 border rounded-lg shadow-sm bg-white">
+            
+          <div  className="flex items-start p-4 border rounded-lg shadow-sm bg-white">
             {/* Profile Picture */}
             <div>
               <img
@@ -80,10 +81,11 @@ function Home() {
               </p>
             </div>
           </div>
-        ))}
+        )
+        )}
       </div>
     </div>
   );
 }
 
-export default Home;
+export default Getdata;
