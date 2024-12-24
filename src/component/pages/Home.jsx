@@ -34,6 +34,12 @@ function Home() {
   if (loading) {
     return <h1>Loading....</h1>;
   }
+
+ const handleUpdate=(event)=>{
+ event.preventDefault();
+ console.log("button clicked!!")
+ }
+
   return (
     <div>
       {/* <ul>
@@ -71,13 +77,22 @@ function Home() {
               <p className="text-gray-400">{user.department}</p>
 
               <p className="text-gray-400">{user.date_of_Birth}</p>
+            
+              <button className="p-2 border m-2 border-blue-600 text-white  rounded-lg bg-blue-600" onClick={handleUpdate} >Update</button> 
+
+              <button className="p-2 border border-blue-600 text-white  rounded-lg bg-blue-600" >Delete</button>
+
+          
             </div>
             {/* Status */}
             <div className="ml-auto">
               <p className="rounded-lg text-sky-500 font-bold bg-sky-100 py-1 px-3 text-sm w-fit h-fit">
                 {" "}
-                {user.status}{" "}
-              </p>
+                {user.status}{""}
+              
+                </p>
+                
+
             </div>
           </div>
         ))}

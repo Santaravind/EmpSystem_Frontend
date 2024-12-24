@@ -13,6 +13,7 @@ import Footer from './component/pages/Footer';
 import Header from './component/pages/Header';
 import Logout from './component/auth/Logout';
 import Getdata from './component/pages/Getdata';
+import Holiday from './component/pages/Holiday';
 
 
 function App() {
@@ -42,6 +43,10 @@ function App() {
             </Privateroute>} />
            <Route path='/hr' element={<Privateroute>
              <HrDetail />
+            </Privateroute>} />
+            
+           <Route path='/calendar' element={<Privateroute>
+             <Holiday/>
             </Privateroute>} />
             
            <Route path='/getdata' element={<Privateroute>
