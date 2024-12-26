@@ -12,6 +12,8 @@ import Privateroute from './component/route/Privateroute';
 import Footer from './component/pages/Footer';
 import Header from './component/pages/Header';
 import Logout from './component/auth/Logout';
+import Getdata from './component/pages/Getdata';
+import Holiday from './component/pages/Holiday';
 
 
 function App() {
@@ -19,18 +21,18 @@ function App() {
 
   const location = useLocation();
   const hideHeaderFooter = ["/login", "/register"];
-  
+  const isLocalStorageEmpty = !localStorage.getItem('token');
   return (
     <>
-     {!hideHeaderFooter.includes(location.pathname) && <Header />}
+     {!isLocalStorageEmpty && !hideHeaderFooter.includes(location.pathname) && <Header />}
+      
+    
 
      <Routes>
       {/* Public Routes */}
-      <Route path="/login" element={<Loginpage />} />
+      <Route path="/" element={<Loginpage />} />
         <Route path="/register" element={<Registerpage />} />
-      
-           
-
+             
            <Route path='/home' element={
             <Privateroute>
              <Home />
@@ -42,15 +44,23 @@ function App() {
            <Route path='/hr' element={<Privateroute>
              <HrDetail />
             </Privateroute>} />
+            
+           <Route path='/calendar' element={<Privateroute>
+             <Holiday/>
+            </Privateroute>} />
+            
+           <Route path='/getdata' element={<Privateroute>
+             <Getdata />
+            </Privateroute>} /> 
+
            <Route path='/logout' element={
              <Logout />} />
 
 
       </Routes>
     
-
-
-           {!hideHeaderFooter.includes(location.pathname) && <Footer />}
+      
+           {!isLocalStorageEmpty&&!hideHeaderFooter.includes(location.pathname) && <Footer />}
       
       
      

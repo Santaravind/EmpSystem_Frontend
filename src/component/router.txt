@@ -1,3 +1,35 @@
+ 
+   
+     // const [deta, setDetail] = useState({});
+    // const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(null);
+    // const token=localStorage.getItem("token");
+    // useEffect(() => {
+    //   const fetchData = async () => {
+    //     try {
+    //      const responce=  await axios.get('http://localhost:8080/api/get-all-employees', {
+    //         headers : {'Authorization': `Bearer ${token}`}
+    //       })
+          
+    //       setDetail(responce.data)
+          
+    //       console.log(deta); 
+    //     } catch (error) {
+    //       setError(error.message); // Handle errors
+    //     } finally {
+    //       setLoading(false); // Set loading to false
+    //     }
+    //   };
+  
+    //   fetchData();
+    // }, []);
+  
+    // if (loading) return <p>Loading...</p>;
+    // if (error) return <p>Error: {error}</p>;
+
+    
+ {!hideHeaderFooter.includes(location.pathname) && <Header />}
+ 
  { /*   
        //First chanse
         <BrowserRouter>

@@ -3,6 +3,8 @@ import Reac from 'react'
 import axios from "axios";
 
 function HrDetail() {
+  const token = localStorage.getItem("token");
+
     const namef=useRef(null);
     const namel=useRef(null);
     const emailf=useRef(null);
@@ -30,13 +32,21 @@ function HrDetail() {
           status: statusf.current.value   
         };
   
-        console.log(formData)
+        console.log(formData);
+
+        const config = {
+          headers: {
+            Authorization: `Bearer ${token}`,
+           
+          },
+        };
   
         if (!formData || Object.keys(formData).length === 0) {
           alert("Form is empty!!")
         }else{
           try {
-            await axios.post("http://localhost:8080/api/hr",formData)
+            await axios.post("http://localhost:8080/manager/hr",formData,config
+            )
              alert("Form Data Submitted:",formData);
           
           } catch (error) {
@@ -68,7 +78,7 @@ function HrDetail() {
     return (
      
       <div className="max-w-2xl mx-auto mt-10 p-6 bg-gray-50 rounded-lg shadow-md">
-    <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">HR Detail</h2>
+    <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">  Enter HR Detail</h2>
     <form action="" onSubmit={handalsubmit} className="space-y-4">
     
       <div className="flex flex-col md:flex-row md:space-x-4">

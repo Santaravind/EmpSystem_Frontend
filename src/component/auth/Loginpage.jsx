@@ -25,7 +25,9 @@ function Loginpage() {
        if (token) {
        // Save the token in localStorage
        localStorage.setItem("token", token);
+       console.log(token);
           setError("");
+      // navigate("/home");
        navigate("/home");
       } else {
                          

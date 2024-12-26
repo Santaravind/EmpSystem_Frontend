@@ -34,7 +34,7 @@ function Registerpage() {
          const response = await axios.post("http://localhost:8080/auth/register", formData);
          
          //naviget to login
-         navigate("/login");
+         navigate("/");
 
         console.log(formData);
 
@@ -116,6 +116,8 @@ function Registerpage() {
         </option>
         <option value="EMPLOYEE">EMPLOYEE</option>
         <option value="ADMIN">ADMIN</option>
+        <option value="HR">HR</option>
+       
       </select>
   
       <button
@@ -134,7 +136,7 @@ function Registerpage() {
     )}
     <h2 className="mt-6">
       If you are already registered,{" "}
-      <Link to="/login" className="text-blue-500 underline hover:text-blue-700">
+      <Link to="/" className="text-blue-500 underline hover:text-blue-700">
         Login
       </Link>
     </h2>

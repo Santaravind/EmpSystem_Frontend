@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 function EmployeeDelail() {
   const namef=useRef(null);
   const namel=useRef(null);
@@ -12,6 +13,9 @@ function EmployeeDelail() {
   const statusf=useRef(null);
   const DOBf=useRef(null);
 
+  
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
   const handalsubmit=async (event)=>{
       event.preventDefault();
 
@@ -28,22 +32,32 @@ function EmployeeDelail() {
         status: statusf.current.value   
       };
 
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+         
+        },
+      };
       // console.log(formData)
 
       if (!formData || Object.keys(formData).length === 0) {
         alert("Form is empty!!")
       }else{
-        try {
-          await axios.post("http://localhost:8080/api/employees",formData)
-           alert("Form Data Submitted:",formData);
+
+              try {
+          await axios.post("http://localhost:8080/api/add-employees",formData,config
+            
+          )
+          alert("Form Data Submitted Successfully!");
+          
         
         } catch (error) {
   
           alert("Error submitting form data:", error);
         }
         
+      
       }
-       
    
 
       namef.current.value = "";
@@ -66,7 +80,7 @@ function EmployeeDelail() {
   return (
    
     <div className="max-w-2xl mx-auto mt-10 p-6 bg-gray-50 rounded-lg shadow-md">
-  <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Employee Detail</h2>
+  <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Enter your Detail</h2>
   <form action="" onSubmit={handalsubmit} className="space-y-4">
   
     <div className="flex flex-col md:flex-row md:space-x-4">
