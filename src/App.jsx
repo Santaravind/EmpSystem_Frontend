@@ -14,6 +14,9 @@ import Header from './component/pages/Header';
 import Logout from './component/auth/Logout';
 import Getdata from './component/pages/Getdata';
 import Holiday from './component/pages/Holiday';
+import UpdateButton from './component/pages/UpdateButton';
+import ProfileUpload from './component/pages/ProfileUpload';
+import FindProfile from './component/pages/FindProfile';
 
 
 function App() {
@@ -48,6 +51,15 @@ function App() {
            <Route path='/calendar' element={<Privateroute>
              <Holiday/>
             </Privateroute>} />
+            <Route path="/employee/update/:id" element={
+              <Privateroute> <UpdateButton/> </Privateroute>
+              } />
+            <Route path="/employee/update/:id" element={
+              <Privateroute> <FindProfile/> </Privateroute>
+              } />
+            <Route path="/profile-upload/:id" element={
+              <Privateroute> <ProfileUpload/> </Privateroute>
+              } />
             
            <Route path='/getdata' element={<Privateroute>
              <Getdata />

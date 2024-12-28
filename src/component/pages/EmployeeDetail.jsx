@@ -79,7 +79,7 @@ function EmployeeDelail() {
 
   return (
    
-    <div className="max-w-2xl mx-auto mt-10 p-6 bg-gray-50 rounded-lg shadow-md">
+    <div className="max-w-2xl mx-auto mt-10 mb-4 p-6 bg-white rounded-lg shadow-md">
   <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Enter your Detail</h2>
   <form action="" onSubmit={handalsubmit} className="space-y-4">
   
