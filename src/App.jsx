@@ -17,6 +17,7 @@ import Holiday from './component/pages/Holiday';
 import UpdateButton from './component/pages/UpdateButton';
 import ProfileUpload from './component/pages/ProfileUpload';
 import FindProfile from './component/pages/FindProfile';
+import HumanResources from './component/pages/HumanResources';
 
 
 function App() {
@@ -46,6 +47,9 @@ function App() {
             </Privateroute>} />
            <Route path='/hr' element={<Privateroute>
              <HrDetail />
+            </Privateroute>} />
+           <Route path='/humanresources' element={<Privateroute>
+             <HumanResources />
             </Privateroute>} />
             
            <Route path='/calendar' element={<Privateroute>

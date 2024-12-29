@@ -1,9 +1,13 @@
-import { useRef } from "react";
-import Reac from 'react'
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+
 
 function HrDetail() {
   const token = localStorage.getItem("token");
+  
+
+   
+ 
 
     const namef=useRef(null);
     const namel=useRef(null);
@@ -16,6 +20,9 @@ function HrDetail() {
     const statusf=useRef(null);
     const DOBf=useRef(null);
   
+    const [error, seterror] = useState(false);
+    //const [loading, setloading] = useState(false);
+
     const handalsubmit=async (event)=>{
         event.preventDefault();
   
@@ -74,6 +81,7 @@ function HrDetail() {
   
   
   
+   
   
     return (
      
