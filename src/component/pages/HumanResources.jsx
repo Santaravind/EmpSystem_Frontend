@@ -43,7 +43,7 @@ function HumanResources() {
       // Error State UI
       if (error) {
         return (
-          <div className="flex justify-center items-center h-screen bg-rose-400">
+          <div className="flex justify-center items-center h-screen bg-indigo-200 ">
       <h1 className="w-1/2 box-content bg-pink-300 p-3 rounded-lg text-lg shadow-lg shadow-rose-400 animate-float">
         You are not Admin Or HR 
       </h1>

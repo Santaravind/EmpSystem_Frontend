@@ -5,14 +5,26 @@ import {Link} from 'react-router-dom'
 function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDropdown, setIsDropdown] = useState(false);
+  const[isdown,setIsDown]=useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
+    setIsDropdown(false);
+    setIsDown(false);
   };
 
   const toggleDrap = () => {
     setIsDropdown(!isDropdown);
+    setIsDropdownOpen(false);
+    setIsDown(false);
   };
+
+
+  const toggleDown=()=>{
+     setIsDropdownOpen(false);
+     setIsDropdown(false);
+    setIsDown(!isdown);
+  }
   return (
    
 
@@ -64,9 +76,7 @@ function Header() {
             )}
           </div>
 
-      {/* <Link to="/home" class="hover:text-indigo-400">Home</Link>
-      <Link to="/Employee" class="hover:text-indigo-400">Employee</Link> */}
-      {/*
+     {/* HR Link with Dropdown 
        <Link to="/hr" class="hover:text-indigo-400">HR</Link> */}
         <div className="relative">
             <button
@@ -96,13 +106,54 @@ function Header() {
             )}
           </div>
 
+
+        
       <Link to="/getdata" class="hover:text-indigo-400">All Users </Link>
       <Link to="/calendar" class="hover:text-indigo-400">Calendar</Link>
       <a href="#" class="hover:text-indigo-400">Meeting</a>
-      <a href="#" class="hover:text-indigo-400">Document</a> 
-      <Link to="/register" class="hover:text-indigo-400">Register</Link>
-      <Link to="/" class="hover:text-indigo-400">Login</Link>
-      <Link to="/logout" class="hover:text-indigo-400">Logout</Link>
+      <a href="#" class="hover:text-indigo-400">Notification</a> 
+
+
+        {/* register ,login,logout drop down */}
+      <div className="relative">
+            <button
+              onClick={toggleDown}
+              className="hover:text-indigo-400 focus:outline-none flex items-center"
+            >
+              Profile
+              <span className="ml-2">&#9660;</span> {/* Dropdown arrow */}
+            </button>
+            {isdown && (
+              <div className="absolute right-0 mt-2 w-48 bg-white text-gray-800 rounded shadow-lg">
+                <Link
+                  to="/register"
+                  className="block px-4 py-2 hover:bg-indigo-400 hover:text-white"
+                  onClick={() => setIsDown(false)} // Close dropdown on click
+                >
+                  Register
+                </Link>
+                 <Link
+                  to="/"
+                  className="block px-4 py-2 hover:bg-indigo-400 hover:text-white"
+                  onClick={() => setIsDown(false)} // Close dropdown on click
+                >
+                Login
+                </Link> 
+                 <Link
+                  to="/logout"
+                  className="block px-4 py-2 hover:bg-indigo-400 hover:text-white"
+                  onClick={() => setIsDown(false)} // Close dropdown on click
+                >
+                Logout
+                </Link> 
+              </div>
+            )}
+          </div>
+     
+
+      {/* <Link to="" class="hover:text-indigo-400"></Link>
+      <Link to="/" class="hover:text-indigo-400">Login</Link> 
+      <Link to="/logout" class="hover:text-indigo-400">Logout</Link>*/}
       
       </div>
 
