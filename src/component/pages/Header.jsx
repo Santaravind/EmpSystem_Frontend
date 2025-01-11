@@ -114,6 +114,7 @@ function Header() {
       <a href="#" class="hover:text-indigo-400">Notification</a> 
 
 
+
         {/* register ,login,logout drop down */}
       <div className="relative">
             <button
@@ -125,6 +126,14 @@ function Header() {
             </button>
             {isdown && (
               <div className="absolute right-0 mt-2 w-48 bg-white text-gray-800 rounded shadow-lg">
+                
+                <Link
+                  to="/email"
+                  className="block px-4 py-2 hover:bg-indigo-400 hover:text-white"
+                  onClick={() => setIsDown(false)} // Close dropdown on click
+                >
+                Email Service
+                </Link>
                 <Link
                   to="/register"
                   className="block px-4 py-2 hover:bg-indigo-400 hover:text-white"
