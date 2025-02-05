@@ -32,6 +32,7 @@ function Loginpage() {
       } else {
                          
         setError("Login failed. Please try again.");
+        
       }
 
     } catch (err) {
@@ -70,9 +71,11 @@ function Loginpage() {
           Login
         </button>
         <h2 className='m-0.5'> if you are not register , <Link to="/register" className=' m-0.5 text-blue-500 underline hover:text-blue-800' >Register</Link></h2>
-   
+        
       </form>
       {error && <p className="text-red-500 text-center mt-4">{error}</p>}
+      { !email||error&& <h2 className='m-0.5'> Forgot Password, <Link to="/foremail" className=' m-0.5 text-blue-500 underline hover:text-blue-800' > Forgot</Link></h2>
+        }
        </div>
       
   </div>
