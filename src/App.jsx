@@ -18,7 +18,8 @@ import UpdateButton from './component/pages/UpdateButton';
 import ProfileUpload from './component/pages/ProfileUpload';
 import FindProfile from './component/pages/FindProfile';
 import HumanResources from './component/pages/HumanResources';
-
+import EmailSender from './component/pages/EmailSender';
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   
@@ -68,6 +69,9 @@ function App() {
            <Route path='/getdata' element={<Privateroute>
              <Getdata />
             </Privateroute>} /> 
+            <Route path='/email' element={<Privateroute>
+             <EmailSender />
+            </Privateroute>} /> 
 
            <Route path='/logout' element={
              <Logout />} />
@@ -79,7 +83,7 @@ function App() {
            {!isLocalStorageEmpty&&!hideHeaderFooter.includes(location.pathname) && <Footer />}
       
       
-     
+     <Toaster/>
          </>
   )
 }

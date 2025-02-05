@@ -19,8 +19,8 @@ function Holiday() {
   //   </div>
   // )
   return(
-  <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
-      <h1 className="text-2xl font-bold text-sky-500 mb-4">Holiday Calendar</h1>
+  <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6 bg-cover bg-center"  style={{backgroundImage:'url("https://images.pexels.com/photos/28905003/pexels-photo-28905003/free-photo-of-giraffes-crossing-rail-tracks-in-african-savanna.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")'}} >
+      <h1 className="text-2xl font-bold text-black mb-4">Holiday Calendar</h1>
       <div className="bg-white shadow-lg rounded-lg p-6">
         <Calendar
           onChange={onChange}
