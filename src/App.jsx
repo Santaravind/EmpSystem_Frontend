@@ -2,16 +2,16 @@
 import { BrowserRouter, Route, Routes,Navigate, useLocation } from 'react-router-dom';
 import './App.css'
 
-import Loginpage from './component/auth/Loginpage';
-import Registerpage from './component/auth/Registerpage';
-import Layout from './component/pages/Layout';
+import Loginpage from './component/auth/login/Loginpage';
+import Registerpage from './component/auth/login/Registerpage';
+
 import Home from './component/pages/Home';
 import EmployeeDetail from './component/pages/EmployeeDetail';
 import HrDetail from './component/pages/HrDetail';
 import Privateroute from './component/route/Privateroute';
 import Footer from './component/pages/Footer';
 import Header from './component/pages/Header';
-import Logout from './component/auth/Logout';
+import Logout from './component/auth/login/Logout';
 import Getdata from './component/pages/Getdata';
 import Holiday from './component/pages/Holiday';
 import UpdateButton from './component/pages/UpdateButton';
@@ -20,6 +20,9 @@ import FindProfile from './component/pages/FindProfile';
 import HumanResources from './component/pages/HumanResources';
 import EmailSender from './component/pages/EmailSender';
 import { Toaster } from 'react-hot-toast'
+import ForgotEmail from './component/auth/forgotpassword/ForgotEmail';
+import EnterOtp from './component/auth/forgotpassword/EnterOtp';
+import ResetPassword from './component/auth/forgotpassword/ResetPassword';
 
 function App() {
   
@@ -37,7 +40,11 @@ function App() {
       {/* Public Routes */}
       <Route path="/" element={<Loginpage />} />
         <Route path="/register" element={<Registerpage />} />
-             
+        <Route path="/foremail" element={< ForgotEmail/>} /> 
+        <Route path="/otp" element={<EnterOtp/>} /> 
+        <Route path="/reset" element={<ResetPassword/>} /> 
+
+
            <Route path='/home' element={
             <Privateroute>
              <Home />
@@ -83,7 +90,10 @@ function App() {
            {!isLocalStorageEmpty&&!hideHeaderFooter.includes(location.pathname) && <Footer />}
       
       
-     <Toaster/>
+     <Toaster
+       position="top-center"
+       reverseOrder={true}
+     />
          </>
   )
 }

@@ -154,6 +154,24 @@ function Header() {
                   onClick={() => setIsDown(false)} // Close dropdown on click
                 >
                 Logout
+                </Link>
+                <Link
+                  to="/foremail"
+                  style={{ display: "none" }}
+                  >
+                 ForgotEmail
+                </Link> 
+                <Link
+                  to="/otp"
+                  style={{ display: "none" }}
+                  >
+                 Otp
+                </Link> 
+                <Link
+                  to="/reset"
+                  style={{ display: "none" }}
+                  >
+              
                 </Link> 
               </div>
             )}

@@ -36,7 +36,7 @@ function Registerpage() {
          //naviget to login
          navigate("/");
 
-        console.log(formData);
+       // console.log(formData);
 
           // Handle success
           setSuccessMessage("Registration successful! Please login.");
