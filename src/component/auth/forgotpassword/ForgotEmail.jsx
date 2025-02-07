@@ -2,17 +2,22 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { storeEmail } from '../../../redux/emailSlice';
+
+import { useDispatch } from "react-redux";
 
 function ForgotEmail() {
    const navigate= useNavigate();
    const [error,setError]=useState(null);
    const [email, setEmail] = useState("");
-
+   const dispatch=useDispatch();
   const handleSubmit= async (e)=>{
     e.preventDefault();
 
     if (!email) {
-     toast.success("Please enter your registered email.");
+     toast.success("Please enter your registered email.",{
+      position:"top-center"
+     });
       return;
     }
     
@@ -23,6 +28,7 @@ function ForgotEmail() {
     // console.log(email);
       
      setEmail('');
+     dispatch(storeEmail(email));
 
      if (response.status === 200) {
         toast.success("Email sent for varification !!!")
@@ -30,7 +36,6 @@ function ForgotEmail() {
     }    else {
       setError("Error sending verification email. Please try again.");
     }
-
    } catch (err) {
     if(err.response.status===403){
       toast.error("Email not register !!!")
@@ -44,9 +49,9 @@ function ForgotEmail() {
   }
   return (
    
-      <div className="flex justify-center items-center h-screen ">
+      <div className="flex justify-center items-center h-screen bg-cover bg-center" style={{backgroundImage:'url("https://images.pexels.com/photos/28905003/pexels-photo-28905003/free-photo-of-giraffes-crossing-rail-tracks-in-african-savanna.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")'}}>
         
-      <div className=" bg-pink-400 p-8 rounded-lg shadow-lg w-full max-w-md">
+      <div className=" bg-pink-400 p-8 rounded-lg shadow-lg w-full  max-w-md">
         <h2 className="text-2xl font-bold text-center mb-6">Forgot Password</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -68,7 +73,7 @@ function ForgotEmail() {
           </button>
          
         </form>
-       
+           
          </div>
         
     </div>

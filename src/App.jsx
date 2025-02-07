@@ -90,7 +90,10 @@ function App() {
            {!isLocalStorageEmpty&&!hideHeaderFooter.includes(location.pathname) && <Footer />}
       
       
-     <Toaster/>
+     <Toaster
+       position="top-center"
+       reverseOrder={true}
+     />
          </>
   )
 }

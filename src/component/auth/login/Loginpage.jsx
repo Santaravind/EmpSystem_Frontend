@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import axios from "axios";
 import { Link, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 function Loginpage() {
+  
     const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -10,9 +12,14 @@ function Loginpage() {
   
   // Hook for navigation
   const navigate = useNavigate();
+ 
   
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(!email||!password){
+      toast.error("Fill the details  !!!")
+
+    }
     try {
       const response = await axios.post("http://localhost:8080/auth/login", {
         email,
@@ -21,14 +28,17 @@ function Loginpage() {
      
        const token = response.data.token;
          
-
+       
+        
        if (token) {
        // Save the token in localStorage
        localStorage.setItem("token", token);
        console.log(token);
           setError("");
       // navigate("/home");
+      
        navigate("/home");
+
       } else {
                          
         setError("Login failed. Please try again.");
@@ -36,6 +46,7 @@ function Loginpage() {
       }
 
     } catch (err) {
+      toast.error("Invalid credentials !!!")
       setError("Invalid credentials");
     }
   };
@@ -70,7 +81,7 @@ function Loginpage() {
         >
           Login
         </button>
-        <h2 className='m-0.5'> if you are not register , <Link to="/register" className=' m-0.5 text-blue-500 underline hover:text-blue-800' >Register</Link></h2>
+        <h2 className='m-0.5'> If you are not register , <Link to="/register" className=' m-0.5 text-blue-500 underline hover:text-blue-800' >Register</Link></h2>
         
       </form>
       {error && <p className="text-red-500 text-center mt-4">{error}</p>}
