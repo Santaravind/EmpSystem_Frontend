@@ -23,9 +23,15 @@ import { Toaster } from 'react-hot-toast'
 import ForgotEmail from './component/auth/forgotpassword/ForgotEmail';
 import EnterOtp from './component/auth/forgotpassword/EnterOtp';
 import ResetPassword from './component/auth/forgotpassword/ResetPassword';
+import Attendance from './component/pages/Attendance';
+import Attendashboard from './component/pages/Attendashboard';
+import { useEffect, useState } from 'react';
 
 function App() {
   
+  
+
+
 
   const location = useLocation();
   const hideHeaderFooter = ["/login", "/register"];
@@ -50,6 +56,7 @@ function App() {
              <Home />
             </Privateroute>
            } />
+
            <Route path='/employee' element={<Privateroute>
              <EmployeeDetail />
             </Privateroute>} />
@@ -79,6 +86,24 @@ function App() {
             <Route path='/email' element={<Privateroute>
              <EmailSender />
             </Privateroute>} /> 
+
+            
+               <Route path='/attendance' element={<Privateroute>
+                <Attendance />
+               </Privateroute>} /> 
+                    
+
+
+          
+               <Route path='/attendashboard' element={<Privateroute>
+                <Attendashboard />
+               </Privateroute>} />
+            
+
+              //this is working 
+                {/*  <Route path='/attendashboard' element={<Privateroute>
+             <Attendashboard />
+            </Privateroute>} />  */}
 
            <Route path='/logout' element={
              <Logout />} />

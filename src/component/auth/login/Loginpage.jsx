@@ -27,13 +27,18 @@ function Loginpage() {
       });
      
        const token = response.data.token;
+       const role=response.data.role; 
+       //It is working it give me name and role
+      //  console.log(response.data.name);
+      //  console.log(response.data.role);
          
        
         
        if (token) {
        // Save the token in localStorage
        localStorage.setItem("token", token);
-       console.log(token);
+       localStorage.setItem("role",role);
+      // console.log(token);
           setError("");
       // navigate("/home");
       
