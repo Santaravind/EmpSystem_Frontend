@@ -125,6 +125,7 @@ function Home() {
                 Update
               </button>
 
+              
               <button
                 className="p-2 border border-blue-600 text-white rounded-full bg-blue-600 hover:text-red-700"
                 onClick={() => handleDelete(user.employeeID)}

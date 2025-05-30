@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from '../assets/logo.png'
 import {Link} from 'react-router-dom'
 
@@ -6,6 +6,14 @@ function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDropdown, setIsDropdown] = useState(false);
   const[isdown,setIsDown]=useState(false);
+ 
+   //this for role base
+     const [role, setRole] = useState(null);
+     useEffect(() => {   
+       const userRole = localStorage.getItem("role");
+       setRole(userRole);
+     }, []);
+
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -46,9 +54,9 @@ function Header() {
      <div class="hidden space-x-6 md:flex">
 
      <Link to="/home" className="hover:text-indigo-400">Home</Link>
-          
-          {/* Employee Link with Dropdown */}
-          <div className="relative">
+
+     {/* Employee Link with Dropdown */}
+          {(role=="EMPLOYEE" || role=="ADMIN") && ( <div className="relative">
             <button
               onClick={toggleDropdown}
               className="hover:text-indigo-400 focus:outline-none flex items-center"
@@ -56,6 +64,7 @@ function Header() {
               Employee
               <span className="ml-2">&#9660;</span> {/* Dropdown arrow */}
             </button>
+            
             {isDropdownOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-white text-gray-800 rounded shadow-lg">
                 <Link
@@ -65,17 +74,28 @@ function Header() {
                 >
                    Details
                 </Link>
-                {/* <Link
-                  to="/profile-image"
+                <Link
+                  to="/home"
                   className="block px-4 py-2 hover:bg-indigo-400 hover:text-white"
                   onClick={() => setIsDropdownOpen(false)} // Close dropdown on click
                 >
-                  Profile Image
-                </Link> */}
+                  Employees
+                </Link>
+
+                
+                <Link
+                  to="/attendance"
+                  className="block px-4 py-2 hover:bg-indigo-400 hover:text-white"
+                  onClick={() => setIsDropdownOpen(false)} // Close dropdown on click
+                >
+                 Attendance
+                </Link>
               </div>
             )}
           </div>
-
+ )}
+          
+         
      {/* HR Link with Dropdown 
        <Link to="/hr" class="hover:text-indigo-400">HR</Link> */}
         <div className="relative">
@@ -106,9 +126,12 @@ function Header() {
             )}
           </div>
 
+             {(role=="HR" || role=="ADMIN" ) && ( <Link to="/attendashboard" class="hover:text-indigo-400">Attendance </Link> )}
 
-        
-      <Link to="/getdata" class="hover:text-indigo-400">All Users </Link>
+             {(role=="HR" || role=="ADMIN" ) && ( <Link to="/getdata" class="hover:text-indigo-400">All Users </Link>
+       )}
+                
+      {/* <Link to="/getdata" class="hover:text-indigo-400">All Users </Link> */}
       <Link to="/calendar" class="hover:text-indigo-400">Calendar</Link>
       <a href="#" class="hover:text-indigo-400">Meeting</a>
       <a href="#" class="hover:text-indigo-400">Notification</a> 
